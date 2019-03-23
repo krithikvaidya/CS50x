@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Age</th>
+          <th scope="col">Favourite TV Series</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for name in names %}
+            <tr>
+              <th scope="row">{{ loop.index }}</th>
+              <td>{{ name }}</td>
+              <td>{{ genders[loop.index0] }}</td>
+              <td>{{ age_ranges[loop.index0] }}</td>
+              <td>{{ fav_tvseriess[loop.index0] }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

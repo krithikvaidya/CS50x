@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" name="surveyForm" onsubmit = "return validate()" method="post">
+        <div class="form-group col-3" style="margin-left: 0px; padding-left: 0px;">
+            <input autocomplete="off" autofocus="" class="form-control" name="name" placeholder="Name" type="text">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="male" value="Male" checked>
+          <label class="form-check-label" for="male">
+            Male
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+          <label class="form-check-label" for="female">
+            Female
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="other" value="Other">
+          <label class="form-check-label" for="other">
+            Other
+          </label>
+        </div>
+
+        <hr>
+
+        <div class="form-group col-3" style="margin-left: 0px; padding-left: 0px;">
+            <label for="age_range">Age</label>
+            <select class="form-control" id="age_range" name="age_range">
+                <option>Below 20</option>
+                <option>20-40</option>
+                <option>40-60</option>
+                <option>60-80</option>
+                <option>80+</option>
+            </select>
+        </div>
+
+        <div class="form-group col-3" style="margin-left: 0px; padding-left: 0px;">
+            <input autocomplete="off" class="form-control" name="fav_tvseries" placeholder="Favourite TV Series" type="text">
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        function validate()
+        {
+            if (document.surveyForm.name.value == "")
+            {
+                alert( "Please provide your name!" );
+                return false;
+            }
+
+            if (document.surveyForm.age_range.value == -1)
+            {
+                alert( "Please provide age range!" );
+                return false;
+            }
+
+            if (document.surveyForm.fav_tvseries.value == "")
+            {
+                alert( "Please enter your favourite TV Series!" );
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+{% endblock %}
+
+
