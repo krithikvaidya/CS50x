@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+{% block main %}
+    
+    <form id="registration" action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="uname" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Re-Enter Password" type="password">
+        </div>
+        <button id="myAnchor" class="btn btn-primary" type="submit">Register</button>
+    </form>
+    
+    <script>
+        $( document ).ready(function() {
+            $( "button" ).click(function( event ) {
+                event.preventDefault();
+            });
+            
+            $('button').click(function() {
+         var u_name = document.getElementById('uname').value;
+        $( "button" ).click(function( event ) {
+                event.preventDefault();
+            });
+    
+        $.get("check", { username: u_name } )
+            .done(function( data ) {
+                console.log("test");
+                if(data.hmm == false)
+                {
+                    alert( "This username is in use.");
+                }
+                else
+                {
+                    document.getElementById("registration").submit();
+                }
+                    
+            });
+            }); 
+         
+        });
+    </script>
+{% endblock %}
+

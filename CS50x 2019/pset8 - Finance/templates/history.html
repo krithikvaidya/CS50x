@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Symbol</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Date and Time</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for record in records %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                {% for key, value in record.items() %}
+                  <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

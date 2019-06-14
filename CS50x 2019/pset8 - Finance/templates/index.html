@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Finance
+{% endblock %}
+
+{% block main %}
+
+    <table class="table">
+      <thead>
+        <tr></tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Price per Share</th>
+          <th scope="col">Total Value</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for record in records %}
+            <tr>
+              {% for key, value in record.items() %}
+                <td>{{ value }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+          <tr>
+              <td><strong>CASH</strong></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{{ cash }}</td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><strong>{{ total }}</strong></td>
+          </tr>
+      </tbody>
+    </table>
+
+    <form action="/changepw">
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+
+    
+{% endblock %}
